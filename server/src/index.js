@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const app = express();
 const port = 5000;
-const url = "mongodb+srv://nodejsconnect:nodejsconnect@cluster0.qqhi9.mongodb.net/mock?retryWrites=true&w=majority";
+const url = process.env.MONGODB_URI;
 
 const connectDatabase = async (req, res, next) => {
 
