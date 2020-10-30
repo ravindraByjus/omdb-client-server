@@ -36,7 +36,7 @@ export default function App() {
   }
 
   function fetchMovies() {
-    fetch(`http://localhost:5000`)
+    fetch(`http://localhost:5000/${setSearchValue}`)
       .then((response) => response.json())
       .then((result) => setData(result[0]))
       .catch((error) => console.log("error", error));

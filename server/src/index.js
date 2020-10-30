@@ -29,9 +29,10 @@ const connectDatabase = async (req, res, next) => {
 app.use(cors());
 app.use(connectDatabase)
 
-app.get('/', async (req, res) => {   
+app.get('/:searchValue', async (req, res) => {
+    const { searchValue } = req.params;   
     const moviesCollection = nativeclient.db("mock").collection("moviesCollection");
-    const moviesData = await moviesCollection.find().toArray();
+    const moviesData = await moviesCollection.find({ title: searchValue }).toArray();
     console.log(moviesData)
     return res.send(moviesData);
 });
